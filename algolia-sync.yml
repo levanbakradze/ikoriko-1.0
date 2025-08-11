@@ -1,0 +1,36 @@
+# .github/workflows/algolia-sync.yml
+
+name: Sync Products to Algolia
+
+# This workflow runs on every push to the 'main' branch.
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  sync-algolia:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Step 1: Checks out your repository's code so the job can access it
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      # Step 2: Sets up the Node.js environment
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20' # Using Node.js version 20
+
+      # Step 3: Installs the 'algoliasearch' library directly
+      - name: Install Algolia client
+        run: npm install algoliasearch
+
+      # Step 4: Runs the upload script
+      - name: Run Algolia sync script
+        env:
+          ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APP_ID }}
+          ALGOLIA_ADMIN_KEY: ${{ secrets.ALGOLIA_ADMIN_KEY }}
+        # This path now points to the new script in your root directory
+        run: node ./upload-to-algolia.js
