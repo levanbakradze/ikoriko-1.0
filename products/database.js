@@ -1,38 +1,67 @@
 const productsDatabase = {
     gym: [
         { id: 1, title: "წოლჭიმის დანადგარი", price: "₾350", image: "https://images.unsplash.com/photo-1599058917212-d750089bc07e?q=80&w=800&auto=format&fit=crop", isNew: true, brand: "Ikoriko", rating: 4.5, reviewCount: 78, specs: ["პროფესიონალური", "2 წლის გარანტია"] },
+        module.exports = { productsDatabase, detailedProductsDatabase, reviewsDatabase };
         { id: 2, title: "მულტიფუნქციური ტრენაჟორი", price: "₾580", image: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=800&auto=format&fit=crop", isNew: false, brand: "Ikoriko", rating: 5, reviewCount: 42, specs: ["10+ ვარჯიში", "კომპაქტური"] },
+module.exports = { productsDatabase, detailedProductsDatabase, reviewsDatabase };
         { id: 3, title: "ჰანტელების ნაკრები", price: "₾250", image: "https://images.unsplash.com/photo-1598289431512-b97b0917affc?q=80&w=800&auto=format&fit=crop", isNew: false, brand: "Ikoriko", rating: 4.0, reviewCount: 112, specs: ["8 წყვილი", "რეზინის საფარი"] },
+module.exports = { productsDatabase, detailedProductsDatabase, reviewsDatabase };
         { id: 4, title: "ძალოვანი ღეროები", price: "₾180", image: "https://images.unsplash.com/photo-1541534741688-6078c6bfb5c5?q=80&w=800&auto=format&fit=crop", isNew: false, brand: "Ikoriko", rating: 4.5, reviewCount: 55, specs: ["მყარი ლითონი"] },
+module.exports = { productsDatabase, detailedProductsDatabase, reviewsDatabase };
         { id: 5, title: "კარდიო ველოსიპედი", price: "₾420", image: "https://images.unsplash.com/photo-1551963284-8038927f8d6d?q=80&w=800&auto=format&fit=crop", isNew: true, brand: "Ikoriko Fit", rating: 4.0, reviewCount: 31, specs: ["LCD ეკრანი", "8 დონე"] },
+module.exports = { productsDatabase, detailedProductsDatabase, reviewsDatabase };
         { id: 6, title: "ფანქრული ღეროები", price: "₾300", image: "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=800&auto=format&fit=crop", isNew: false, brand: "Ikoriko", rating: 4.5, reviewCount: 88, specs: ["ოლიმპიური სტანდარტი"] },
+module.exports = { productsDatabase, detailedProductsDatabase, reviewsDatabase };
         { id: 7, title: "ღია ტრენაჟორი", price: "₾380", image: "https://images.unsplash.com/photo-1571902943202-507ec2618e8f?q=80&w=800&auto=format&fit=crop", isNew: false, brand: "Ikoriko", rating: 4.0, reviewCount: 64, specs: ["რეგულირებადი სიმაღლე"] },
+module.exports = { productsDatabase, detailedProductsDatabase, reviewsDatabase };
         { id: 8, title: "ზურგის ტრენაჟორი", price: "₾290", image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=800&auto=format&fit=crop", isNew: false, brand: "Ikoriko", rating: 5, reviewCount: 91, specs: ["ერგონომიული დიზაინი"] },
+module.exports = { productsDatabase, detailedProductsDatabase, reviewsDatabase };
         { id: 9, title: "ლეგ პრესი", price: "₾520", image: "https://images.unsplash.com/photo-1596357395217-e7de5063a234?q=80&w=800&auto=format&fit=crop", isNew: false, brand: "Ikoriko", rating: 4.5, reviewCount: 25, specs: ["მაღალი დატვირთვა"] },
+module.exports = { productsDatabase, detailedProductsDatabase, reviewsDatabase };
         { id: 10, title: "ტრენაჟორთა კომპლექსი", price: "₾750", image: "https://images.unsplash.com/photo-1598289431512-b97b0917affc?q=80&w=800&auto=format&fit=crop", isNew: false, brand: "Ikoriko", rating: 5, reviewCount: 15, specs: ["სრული კომპლექტი", "პროფესიონალური"] }
     ],
+module.exports = { productsDatabase, detailedProductsDatabase, reviewsDatabase };
     armwrestling: [
         { id: 11, title: "მკლავჭიდის მაგიდა", price: "₾157", image: "https://images.unsplash.com/photo-1607962837359-5e7e89f86776?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", isNew: true, brand: "Ikoriko Arm", rating: 5, reviewCount: 96, specs: ["WAF სტანდარტი", "პროფესიონალური"] },
+        module.exports = { productsDatabase, detailedProductsDatabase, reviewsDatabase };
         { id: 12, title: "მკლავჭიდის სახელური", price: "₾60", image: "https://images.unsplash.com/photo-1605296867304-46d5465a13f1?q=80&w=1470&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", isNew: false, brand: "Ikoriko Arm", rating: 4.5, reviewCount: 130, specs: ["რეგულირებადი", "მულტი-კუთხე"] },
+module.exports = { productsDatabase, detailedProductsDatabase, reviewsDatabase };
         { id: 13, title: "ხელის ღეროები", price: "₾120", image: "https://images.unsplash.com/photo-1576678927484-cc907957088c?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", isNew: false, brand: "Ikoriko Arm", rating: 4.0, reviewCount: 45, specs: ["რკინის კონსტრუქცია"] },
+module.exports = { productsDatabase, detailedProductsDatabase, reviewsDatabase };
         { id: 14, title: "რეგულირებადი მაგიდა", price: "₾280", image: "https://plus.unsplash.com/premium_photo-1670505059783-228b77d8df17?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", isNew: false, brand: "Ikoriko Arm", rating: 4.0, reviewCount: 22, specs: ["სახლისთვის და დარბაზისთვის"] },
+module.exports = { productsDatabase, detailedProductsDatabase, reviewsDatabase };
         { id: 15, title: "ძალის ტრენერი", price: "₾440", image: "https://images.unsplash.com/photo-1603077492340-e6e62b2a688b?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", isNew: false, brand: "Ikoriko Arm", rating: 4.5, reviewCount: 38, specs: ["მულტი-კუთხე", "გამძლე"] },
+module.exports = { productsDatabase, detailedProductsDatabase, reviewsDatabase };
         { id: 16, title: "პროფესიონალური მაგიდა", price: "₾520", image: "https://images.unsplash.com/photo-1574680178336-9492a62ce313?q=80&w=800&auto=format&fit=crop", isNew: false, brand: "Ikoriko Arm", rating: 5, reviewCount: 18, specs: ["WAF სტანდარტი", "გარანტიით"] },
+module.exports = { productsDatabase, detailedProductsDatabase, reviewsDatabase };
         { id: 17, title: "ხელის ტრენერი", price: "₾90", image: "https://images.unsplash.com/photo-1526506118085-60ce8714f8c5?q=80&w=800&auto=format&fit=crop", isNew: false, brand: "Ikoriko Arm", rating: 4.0, reviewCount: 77, specs: ["რეგულირებადი დატვირთვა"] },
+module.exports = { productsDatabase, detailedProductsDatabase, reviewsDatabase };
         { id: 18, title: "ცხრილის ტრენერი", price: "₾340", image: "https://images.unsplash.com/photo-1549060279-7e168fcee0c2?q=80&w=800&auto=format&fit=crop", isNew: false, brand: "Ikoriko Arm", rating: 4.0, reviewCount: 41, specs: ["მაღალი ხარისხი"] },
+module.exports = { productsDatabase, detailedProductsDatabase, reviewsDatabase };
         { id: 19, title: "მოძრაობის ტრენერი", price: "₾230", image: "https://images.unsplash.com/photo-1550345332-09e3ac987658?q=80&w=800&auto=format&fit=crop", isNew: false, brand: "Ikoriko Arm", rating: 4.5, reviewCount: 68, specs: ["სრული მოძრაობა"] },
+module.exports = { productsDatabase, detailedProductsDatabase, reviewsDatabase };
         { id: 20, title: "კომპლექსური ტრენერი", price: "₾650", image: "https://images.unsplash.com/photo-1576678927484-cc907957088c?q=80&w=800&auto=format&fit=crop", isNew: false, brand: "Ikoriko Arm", rating: 5, reviewCount: 21, specs: ["ყველა კუთხისთვის"] }
     ],
+module.exports = { productsDatabase, detailedProductsDatabase, reviewsDatabase };
     accessories: [
         { id: 21, title: "დაცვითი ხელთათმანები", price: "₾35", image: "https://images.unsplash.com/photo-1603077492340-e6e62b2a688b?q=80&w=687&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", isNew: true, brand: "Ikoriko Gear", rating: 4.0, reviewCount: 210, specs: ["ტყავი", "L/XL ზომა"] },
+        module.exports = { productsDatabase, detailedProductsDatabase, reviewsDatabase };
         { id: 22, title: "მაჯის სახვევები", price: "₾25", image: "https://images.unsplash.com/photo-1579584425555-c3ce17fd4351?q=80&w=800&auto=format&fit=crop", isNew: false, brand: "Ikoriko Gear", rating: 4.5, reviewCount: 180, specs: ["ელასტიური", "მყარი ფიქსაცია"] },
+module.exports = { productsDatabase, detailedProductsDatabase, reviewsDatabase };
         { id: 23, title: "იდაყვის სახვევები", price: "₾45", image: "https://images.unsplash.com/photo-1605296867304-46d5465a13f1?q=80&w=800&auto=format&fit=crop", isNew: false, brand: "Ikoriko Gear", rating: 4.0, reviewCount: 155, specs: ["ნეოპრინი", "კომპრესიული"] },
+module.exports = { productsDatabase, detailedProductsDatabase, reviewsDatabase };
         { id: 24, title: "სავარჯიშო ქამარი", price: "₾85", image: "https://images.unsplash.com/photo-1552196563-55cd4e45efb3?q=80&w=800&auto=format&fit=crop", isNew: false, brand: "Ikoriko Gear", rating: 5, reviewCount: 250, specs: ["ტყავი", "რკინის ბალთა"] },
+module.exports = { productsDatabase, detailedProductsDatabase, reviewsDatabase };
         { id: 25, title: "მკლავჭიდის ბალიშები", price: "₾40", image: "https://images.unsplash.com/photo-1574680178336-9492a62ce313?q=80&w=800&auto=format&fit=crop", isNew: false, brand: "Ikoriko Arm", rating: 4.5, reviewCount: 73, specs: ["იდაყვის და ბიცეფსისთვის"] },
+module.exports = { productsDatabase, detailedProductsDatabase, reviewsDatabase };
         { id: 26, title: "სპორტული ჩანთა", price: "₾80", image: "https://images.unsplash.com/photo-1563821753999-a2e6e3c23c6f?q=80&w=800&auto=format&fit=crop", isNew: true, brand: "Ikoriko Gear", rating: 4.5, reviewCount: 102, specs: ["წყალგაუმტარი", "მსუბუქი"] },
+module.exports = { productsDatabase, detailedProductsDatabase, reviewsDatabase };
         { id: 27, title: "ტრენინგ მაისურები", price: "₾60", image: "https://images.unsplash.com/photo-1621451253337-4d76c9699634?q=80&w=800&auto=format&fit=crop", isNew: false, brand: "Ikoriko Gear", rating: 4.0, reviewCount: 89, specs: ["სუნთქვადი ქსოვილი", "ყველა ზომა"] },
+module.exports = { productsDatabase, detailedProductsDatabase, reviewsDatabase };
         { id: 28, title: "წყლის ბოთლი", price: "₾20", image: "https://images.unsplash.com/photo-1610912177233-35f309d6c7af?q=80&w=800&auto=format&fit=crop", isNew: false, brand: "Ikoriko Gear", rating: 4.0, reviewCount: 300, specs: ["BPA Free", "1 ლიტრი"] },
+module.exports = { productsDatabase, detailedProductsDatabase, reviewsDatabase };
         { id: 29, title: "მაგნეზიუმის ფხვნილი", price: "₾15", image: "https://images.unsplash.com/photo-1631743498399-73896593a105?q=80&w=800&auto=format&fit=crop", isNew: false, brand: "Ikoriko Gear", rating: 5, reviewCount: 450, specs: ["200გ", "მაქსიმალური სიმშრალე"] },
+module.exports = { productsDatabase, detailedProductsDatabase, reviewsDatabase };
         { id: 30, title: "აქსესუარების ნაკრები", price: "₾120", image: "https://images.unsplash.com/photo-1594882645126-14020914d58d?q=80&w=800&auto=format&fit=crop", isNew: false, brand: "Ikoriko Gear", rating: 5, reviewCount: 65, specs: ["სრული კომპლექტი", "საჩუქრად"] }
     ]
 };
