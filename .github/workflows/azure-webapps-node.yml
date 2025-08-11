@@ -40,10 +40,17 @@ jobs:
       uses: actions/setup-node@v4
       with:
         node-version: ${{ env.NODE_VERSION }}
-        cache: 'npm'
+        # -----------------------------------------------------------------
+        # FIX: The 'cache' line below has been removed.
+        # This prevents the error "Dependencies lock file is not found"
+        # because this project does not use a package.json file.
+        # -----------------------------------------------------------------
+        # cache: 'npm' # <--- THIS LINE WAS REMOVED
 
     - name: npm install, build, and test
       run: |
+        # This step will likely do nothing since there's no package.json,
+        # but we can leave it in case you add one later.
         npm install
         npm run build --if-present
         npm run test --if-present
