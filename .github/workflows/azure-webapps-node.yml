@@ -1,6 +1,5 @@
 # .github/workflows/azure-webapps-node.yml
-
-# This is a simplified workflow for deploying a STATIC website to Azure Web App.
+# This is a corrected workflow for deploying a STATIC website to Azure Web App.
 
 on:
   push:
@@ -8,7 +7,7 @@ on:
   workflow_dispatch:
 
 env:
-  AZURE_WEBAPP_NAME: your-app-name    # IMPORTANT: set this to your application's name
+  AZURE_WEBAPP_NAME: your-app-name # IMPORTANT: set this to your application's name
 
 jobs:
   deploy:
@@ -18,11 +17,16 @@ jobs:
     - name: Checkout repository
       uses: actions/checkout@v4
 
-    # Step 2: Deploys the files to Azure Web App
-    # This action knows how to deploy static content directly.
+    # Step 2: Add the explicit Azure Login action as requested by the error log.
+    # This uses the same publish-profile secret you already have.
+    - name: Log in to Azure
+      uses: azure/login@v1
+      with:
+        creds: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
+
+    # Step 3: Deploys the files to Azure Web App
     - name: 'Deploy to Azure WebApp'
       uses: azure/webapps-deploy@v2
       with:
         app-name: ${{ env.AZURE_WEBAPP_NAME }}
-        publish-profile: ${{ secrets.AZURE_WEBAPP_PUBLISH_PROFILE }}
         package: '.' # Deploy the entire repository root
