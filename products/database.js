@@ -52,4 +52,7 @@ const reviewsDatabase = [
 ];
 
 // This is the single, correct line that should be at the very end of the file.
-module.exports = { productsDatabase, detailedProductsDatabase, reviewsDatabase };
+// Export for Node.js if module exists, otherwise make available globally for browser
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = { productsDatabase, detailedProductsDatabase, reviewsDatabase };
+}
