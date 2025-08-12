@@ -1,0 +1,14 @@
+{
+  "name": "ikoriko-project",
+  "version": "1.0.0",
+  "description": "Ikoriko website and deployment scripts.",
+  "main": "index.html",
+  "scripts": {
+    "sync-algolia": "node ./upload-to-algolia.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "algoliasearch": "^4.20.0"
+  }
+}
