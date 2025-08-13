@@ -4,103 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ხელნაკეთი დანადგარები</title>
+    <!-- DaisyUI and Tailwind CSS -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.10.1/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-
-    <!-- Algolia Autocomplete -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@algolia/autocomplete-theme-classic"/>
-<script src="https://cdn.jsdelivr.net/npm/@algolia/autocomplete-js"></script>
-<script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.20.0/dist/algoliasearch-lite.umd.js"></script>
-
-<!-- Custom Styles for Autocomplete Dropdown -->
-<style>
-    .aa-Panel {
-        margin-top: 0.5rem;
-        border-radius: 0.75rem !important;
-        border: 1px solid hsl(var(--b3));
-        background-color: hsl(var(--b1));
-        box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-    }
-    .aa-Item[aria-selected='true'] {
-        background-color: hsl(var(--b2)) !important;
-    }
-</style>
+    <!-- Algolia Autocomplete Scripts & Styles -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@algolia/autocomplete-theme-classic"/>
+    <script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.20.0/dist/algoliasearch-lite.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@algolia/autocomplete-js"></script>
 
     <style>
-        [data-theme="corporate"] .hero .btn.glass {
-            color: white;
-        }
+        [data-theme="corporate"] .hero .btn.glass { color: white; }
         body { font-family: 'Inter', sans-serif; }
         .navbar { transition: transform 0.3s ease-in-out; }
         .navbar-hidden { transform: translateY(-100%); }
         .carousel { scroll-behavior: smooth; -webkit-overflow-scrolling: touch; }
         .carousel::-webkit-scrollbar { display: none; }
-        .line-clamp-2 { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
-        .card { transform: translateY(0); transition: transform 0.3s ease, box-shadow 0.3s ease; }
         .card:hover { transform: translateY(-4px); }
-        .carousel-loading { min-height: 400px; display: flex; align-items: center; justify-content: center; }
-
-
-
-
-
-
-
-
         
-        
-        /* --- Product Card Hover Gradient Effect --- */
-        .product-card {
-            position: relative;
-            transition: transform 0.3s ease;
-            /* Carts need to have a higher z-index to be above their own shadows */
-            z-index: 1;
+        /* Custom Styles for Autocomplete Dropdown */
+        .aa-Panel {
+            margin-top: 0.5rem;
+            border-radius: 0.75rem !important;
+            border: 1px solid hsl(var(--b3));
+            background-color: hsl(var(--b1));
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
         }
-
-        .product-card::after {
-            content: '';
-            position: absolute;
-            z-index: -1; /* Place the shadow behind the card */
-            bottom: -15px;
-            left: 10%;
-            width: 80%;
-            height: 30px;
-            
-            /* The grayish gradient effect */
-            /* This uses a shade of blue */
-            background: radial-gradient(ellipse at center, rgba(59, 130, 246, 0.25) 0%, rgba(0, 0, 0, 0) 75%);
-
-            opacity: 0;
-            transition: opacity 0.3s ease, transform 0.3s ease;
-        }
-
-        .product-card:hover {
-            transform: translateY(-6px);
-        }
-
-        .product-card:hover::after {
-            opacity: 1;
-        }
-
-        /* --- SMART SCROLLING FIX --- */
-        .carousel-item {
-            scroll-snap-align: start;
-        }
-        @media (min-width: 768px) {
-            .carousel {
-                scroll-snap-type: x mandatory;
-            }
-        }
-
-        /* --- ARROW BUTTON DARK MODE FIX --- */
-        [data-theme="business"] .arrow-icon {
-            color: white !important;
-        }
-        [data-theme="business"] .arrow-btn:hover .arrow-icon {
-            color: black !important;
+        .aa-Item[aria-selected='true'] {
+            background-color: hsl(var(--b2)) !important;
         }
     </style>
 </head>
@@ -143,114 +76,59 @@
                 <h1 class="mb-5 text-5xl font-bold">ხელნაკეთი. საიმედო. ქართული.</h1>
                 <p class="mb-5">ჩვენ ვქმნით სავარჯიშო დანადგარებს, რომლებიც შექმნილია სიმტკიცისთვის და გამძლეობისთვის.</p>
             </div>
-
             <div class="mt-8 md:mt-0">
                 <a href="products/product-list.html?category=all" class="btn btn-primary btn-lg glass">ყველა პროდუქტის ნახვა</a>
             </div>
         </div>
     </div>
 
-    </div>
-
-<!-- START: Live Search Section -->
-<section class="bg-base-200 py-16">
-    <div class="container mx-auto max-w-2xl px-4 text-center">
-
-        <!-- This container is where the live search will be rendered -->
-        <div id="autocomplete" class="relative"></div>
-
-        <!-- Corrected Category Links -->
-        <div class="mt-8">
-            <h3 class="text-base-content/70 mb-3">პოპულარული კატეგორიები</h3>
-            <div class="flex flex-wrap justify-center gap-3">
-                <a href="products/product-list.html?category=gym" class="btn btn-ghost rounded-full">დარბაზის დანადგარები</a>
-                <a href="products/product-list.html?category=armwrestling" class="btn btn-ghost rounded-full">მკლავჭიდი</a>
-                <a href="products/product-list.html?category=accessories" class="btn btn-ghost rounded-full">აქსესუარები</a>
+    <!-- START: Live Search Section -->
+    <section class="bg-base-200 py-16">
+        <div class="container mx-auto max-w-2xl px-4 text-center">
+            <div id="autocomplete" class="relative"></div>
+            <div class="mt-8">
+                <h3 class="text-base-content/70 mb-3">პოპულარული კატეგორიები</h3>
+                <div class="flex flex-wrap justify-center gap-3">
+                    <a href="products/product-list.html?category=gym" class="btn btn-ghost rounded-full">დარბაზის დანადგარები</a>
+                    <a href="products/product-list.html?category=armwrestling" class="btn btn-ghost rounded-full">მკლავჭიდი</a>
+                    <a href="products/product-list.html?category=accessories" class="btn btn-ghost rounded-full">აქსესუარები</a>
+                </div>
             </div>
         </div>
+    </section>
+    <!-- END: Live Search Section -->
 
-    </div>
-</section>
-<!-- END: Live Search Section -->
-
-
-
-
-    
-
-    
     <main class="container mx-auto p-4 md:p-8 space-y-20">
         <div id="products" class="space-y-16 scroll-mt-20">
+            <!-- Product carousels will be populated by main.js -->
             <section>
                 <div class="flex flex-wrap gap-4 justify-between items-center mb-6">
                     <h2 class="text-3xl font-bold">დარბაზის დანადგარები</h2>
-                    <div class="flex items-center gap-2">
-                        <button onclick="moveCarousel('gym', -1)" class="group p-3 rounded-full hover:bg-gray-300 dark:hover:bg-white focus:outline-none transition-colors arrow-btn">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-800 arrow-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
-                        </button>
-                        <button onclick="moveCarousel('gym', 1)" class="group p-3 rounded-full hover:bg-gray-300 dark:hover:bg-white focus:outline-none transition-colors arrow-btn">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-800 arrow-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
-                        </button>
-                        <a href="products/product-list.html?category=gym" class="bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-200 font-semibold py-2 px-6 rounded-full shadow-md hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors ml-2">ყველას ნახვა</a>
-                    </div>
+                    <a href="products/product-list.html?category=gym" class="btn btn-outline btn-primary btn-sm">ყველას ნახვა</a>
                 </div>
-                <div id="gym-carousel" class="carousel carousel-center w-full p-4 space-x-4 rounded-box">
-                    <span class="loading loading-spinner loading-lg"></span>
-                </div>
+                <div id="gym-carousel" class="carousel carousel-center w-full p-4 space-x-4 rounded-box"><span class="loading loading-spinner loading-lg"></span></div>
             </section>
             
             <section>
                 <div class="flex flex-wrap gap-4 justify-between items-center mb-6">
                     <h2 class="text-3xl font-bold">მკლავჭიდის დანადგარები</h2>
-                    <div class="flex items-center gap-2">
-                        <button onclick="moveCarousel('armwrestling', -1)" class="group p-3 rounded-full hover:bg-gray-300 dark:hover:bg-white focus:outline-none transition-colors arrow-btn">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-800 arrow-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
-                        </button>
-                        <button onclick="moveCarousel('armwrestling', 1)" class="group p-3 rounded-full hover:bg-gray-300 dark:hover:bg-white focus:outline-none transition-colors arrow-btn">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-800 arrow-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
-                        </button>
-                        <a href="products/product-list.html?category=armwrestling" class="bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-200 font-semibold py-2 px-6 rounded-full shadow-md hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors ml-2">ყველას ნახვა</a>
-                    </div>
+                    <a href="products/product-list.html?category=armwrestling" class="btn btn-outline btn-primary btn-sm">ყველას ნახვა</a>
                 </div>
-                <div id="armwrestling-carousel" class="carousel carousel-center w-full p-4 space-x-4 rounded-box">
-                    <span class="loading loading-spinner loading-lg"></span>
-                </div>
+                <div id="armwrestling-carousel" class="carousel carousel-center w-full p-4 space-x-4 rounded-box"><span class="loading loading-spinner loading-lg"></span></div>
             </section>
 
             <section>
                 <div class="flex flex-wrap gap-4 justify-between items-center mb-6">
                     <h2 class="text-3xl font-bold">აქსესუარები</h2>
-                    <div class="flex items-center gap-2">
-                        <button onclick="moveCarousel('accessories', -1)" class="group p-3 rounded-full hover:bg-gray-300 dark:hover:bg-white focus:outline-none transition-colors arrow-btn">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-800 arrow-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
-                        </button>
-                        <button onclick="moveCarousel('accessories', 1)" class="group p-3 rounded-full hover:bg-gray-300 dark:hover:bg-white focus:outline-none transition-colors arrow-btn">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-800 arrow-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
-                        </button>
-                        <a href="products/product-list.html?category=accessories" class="bg-white dark:bg-gray-700 text-gray-800 dark:text-gray-200 font-semibold py-2 px-6 rounded-full shadow-md hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors ml-2">ყველას ნახვა</a>
-                    </div>
+                    <a href="products/product-list.html?category=accessories" class="btn btn-outline btn-primary btn-sm">ყველას ნახვა</a>
                 </div>
-                <div id="accessories-carousel" class="carousel carousel-center w-full p-4 space-x-4 rounded-box">
-                    <span class="loading loading-spinner loading-lg"></span>
-                </div>
+                <div id="accessories-carousel" class="carousel carousel-center w-full p-4 space-x-4 rounded-box"><span class="loading loading-spinner loading-lg"></span></div>
             </section>
         </div>
 
         <section id="reviews" class="scroll-mt-20">
-            <div class="flex flex-wrap gap-4 justify-between items-center mb-6">
-                 <h2 class="text-3xl font-bold text-center">რას ამბობენ ჩვენი კლიენტები</h2>
-                 <div class="flex items-center gap-2">
-                    <button onclick="moveCarousel('reviews', -1)" class="group p-3 rounded-full hover:bg-gray-300 dark:hover:bg-white focus:outline-none transition-colors arrow-btn">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-800 arrow-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" /></svg>
-                    </button>
-                    <button onclick="moveCarousel('reviews', 1)" class="group p-3 rounded-full hover:bg-gray-300 dark:hover:bg-white focus:outline-none transition-colors arrow-btn">
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-gray-800 arrow-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" /></svg>
-                    </button>
-                </div>
-            </div>
-            <div id="reviews-carousel" class="carousel carousel-center w-full p-4 space-x-4 rounded-box">
-                <span class="loading loading-spinner loading-lg"></span>
-            </div>
+             <h2 class="text-3xl font-bold text-center mb-6">რას ამბობენ ჩვენი კლიენტები</h2>
+            <div id="reviews-carousel" class="carousel carousel-center w-full p-4 space-x-4 rounded-box"><span class="loading loading-spinner loading-lg"></span></div>
         </section>
     </main>
 
@@ -271,77 +149,83 @@
 
     <script src="products/database.js"></script>
     <script src="main.js"></script>
-    <script src="theme.js"></script>
-
-
     
-    
-    
-    <!-- Algolia Autocomplete Initialization Script -->
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-        // 1. Initialize Algolia Client
-        const searchClient = algoliasearch(
-            'OQC8X4A20K', // Your Algolia App ID
-            '6e71089d6108e857ac4ec977426bb99c'  // Your Algolia Search-Only API Key
-        );
+    <!-- Combined and Corrected Initialization Script -->
+    <script id="page-init-script">
+        document.addEventListener('DOMContentLoaded', function () {
+            // --- THEME CONTROLLER LOGIC (from theme.js) ---
+            const themeController = document.querySelector('.theme-controller');
+            if (themeController) {
+                const applyTheme = () => {
+                    const currentTheme = localStorage.getItem('theme') || 'corporate';
+                    document.documentElement.setAttribute('data-theme', currentTheme);
+                    themeController.checked = currentTheme === 'business';
+                };
+                applyTheme();
+                themeController.addEventListener('change', (e) => {
+                    const theme = e.target.checked ? 'business' : 'corporate';
+                    document.documentElement.setAttribute('data-theme', theme);
+                    localStorage.setItem('theme', theme);
+                });
+            }
 
-        // 2. Initialize Autocomplete (CORRECTED LINE)
-        const { autocomplete } = algoliaAutocomplete; // <-- FIX IS HERE
+            // --- AUTO-HIDING HEADER LOGIC (from theme.js) ---
+            const header = document.getElementById('main-header');
+            if (header) {
+                let lastScrollTop = 0;
+                window.addEventListener('scroll', function() {
+                    let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                    if (scrollTop > lastScrollTop && scrollTop > header.offsetHeight) {
+                        header.classList.add('navbar-hidden');
+                    } else {
+                        header.classList.remove('navbar-hidden');
+                    }
+                    lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+                }, false);
+            }
 
-        autocomplete({
-            container: '#autocomplete',
-            placeholder: 'მოძებნე სასურველი პროდუქტი...',
-            openOnFocus: true,
-            classNames: {
-                input: 'input input-lg input-bordered w-full pr-12 rounded-full shadow-lg focus:input-primary',
-                form: 'relative',
-            },
-            // 3. Define what happens when a user searches
-            getSources({ query }) {
-                return [
-                    {
+            // --- ALGOLIA AUTOCOMPLETE INITIALIZATION ---
+            const searchClient = algoliasearch(
+                'OQC8X4A20K', // Your Algolia App ID
+                '6e71089d6108e857ac4ec977426bb99c'  // Your Algolia Search-Only API Key
+            );
+
+            const { autocomplete } = algoliaAutocomplete;
+
+            autocomplete({
+                container: '#autocomplete',
+                placeholder: 'მოძებნე სასურველი პროდუქტი...',
+                openOnFocus: true,
+                classNames: {
+                    input: 'input input-lg input-bordered w-full pr-12 rounded-full shadow-lg focus:input-primary',
+                    form: 'relative',
+                },
+                getSources({ query }) {
+                    return [{
                         sourceId: 'products',
                         getItems() {
-                            return searchClient.initIndex('ikoriko_products').search(query, {
-                                hitsPerPage: 5,
-                            }).then(({ hits }) => hits);
+                            return searchClient.initIndex('ikoriko_products').search(query, { hitsPerPage: 5 })
+                                .then(({ hits }) => hits);
                         },
-                        // 4. Define how each result item looks
                         templates: {
                             item({ item, html }) {
-                                return html`
-                                    <a href="products/product.html?id=${item.objectID}" class="aa-ItemLink flex items-center p-2 gap-4">
-                                        <img src="${item.image}" alt="${item.title}" class="w-16 h-16 object-cover rounded-md" />
-                                        <div class="text-left">
-                                            <div class="font-semibold text-base-content">${item.title}</div>
-                                            <div class="text-sm text-base-content/70">${item.brand}</div>
-                                        </div>
-                                    </a>
-                                `;
+                                return html`<a href="products/product.html?id=${item.objectID}" class="aa-ItemLink flex items-center p-2 gap-4">
+                                    <img src="${item.image}" alt="${item.title}" class="w-16 h-16 object-cover rounded-md" />
+                                    <div class="text-left">
+                                        <div class="font-semibold text-base-content">${item.title}</div>
+                                        <div class="text-sm text-base-content/70">${item.brand}</div>
+                                    </div>
+                                </a>`;
                             },
                             noResults({ html }) {
                                 return html`<div class="p-4 text-center text-base-content/70">პროდუქტი ვერ მოიძებნა.</div>`;
                             },
                         },
-                    },
-                ];
-            },
+                    }];
+                },
+            });
         });
-    });
-</script>
+    </script>
 
-
-
-
-    
 </body>
-
 </html>
-
-
-
-
-
-
-
