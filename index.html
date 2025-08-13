@@ -123,6 +123,7 @@
                 <h1 class="mb-5 text-5xl font-bold">ხელნაკეთი. საიმედო. ქართული.</h1>
                 <p class="mb-5">ჩვენ ვქმნით სავარჯიშო დანადგარებს, რომლებიც შექმნილია სიმტკიცისთვის და გამძლეობისთვის.</p>
             </div>
+
             <div class="mt-8 md:mt-0">
                 <a href="products/product-list.html?category=all" class="btn btn-primary btn-lg glass">ყველა პროდუქტის ნახვა</a>
             </div>
@@ -130,6 +131,38 @@
     </div>
 
     </div>
+
+
+<!-- START: Search Section -->
+<section class="bg-base-200 py-16">
+    <div class="container mx-auto max-w-2xl px-4 text-center">
+
+        <!-- Search Form -->
+        <form id="home-search-form" class="relative">
+            <input id="home-search-input" type="search" name="query" placeholder="მოძებნე სასურველი პროდუქტი..." class="input input-lg input-bordered w-full pr-12 rounded-full shadow-lg focus:input-primary" />
+            <button type="submit" class="btn btn-primary btn-circle absolute top-1/2 right-1.5 -translate-y-1/2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+            </button>
+        </form>
+
+        <!-- Suggested Categories -->
+        <div class="mt-8">
+            <h3 class="text-base-content/70 mb-3">პოპულარული კატეგორიები</h3>
+            <div class="flex flex-wrap justify-center gap-3">
+                <a href="search.html?query=მკლავჭიდი" class="btn btn-ghost rounded-full">მკლავჭიდი</a>
+                <a href="search.html?query=წოლჭიმი" class="btn btn-ghost rounded-full">წოლჭიმი</a>
+                <a href="search.html?query=ჰანტელი" class="btn btn-ghost rounded-full">ჰანტელები</a>
+                <a href="search.html?query=აქსესუარები" class="btn btn-ghost rounded-full">აქსესუარები</a>
+            </div>
+        </div>
+
+    </div>
+</section>
+<!-- END: Search Section -->
+
+
+
+    
 
     
     <main class="container mx-auto p-4 md:p-8 space-y-20">
@@ -225,9 +258,34 @@
     <script src="products/database.js"></script>
     <script src="main.js"></script>
     <script src="theme.js"></script>
+
+<!-- Script for Homepage Search Bar -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const searchForm = document.getElementById('home-search-form');
+        const searchInput = document.getElementById('home-search-input');
+
+        if (searchForm) {
+            searchForm.addEventListener('submit', function (event) {
+                event.preventDefault();
+                const query = searchInput.value.trim();
+                if (query) {
+                    // This creates the URL and redirects to the search page
+                    window.location.href = `search.html?query=${encodeURIComponent(query)}`;
+                }
+            });
+        }
+    });
+</script>
+
+
+
+
+    
 </body>
 
 </html>
+
 
 
 
