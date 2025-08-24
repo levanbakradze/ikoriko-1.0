@@ -3,11 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ხელნაკეთი დანადგარები</title>
+    <title>ხელნაკეთი დანადგარები - Ikoriko</title>
+    
+    <!-- SEO & Performance -->
+    <meta name="description" content="ივერის ხელნაკეთი მკლავჭიდის დანადგარები - 6 წლის გამოცდილება, მაღალი ხარისხი, საქართველოში დამზადებული">
+    <meta name="keywords" content="მკლავჭიდი, სავარჯიშო დანადგარები, ხელნაკეთი, საქართველო, ივერი">
+    <meta property="og:title" content="Ikoriko - ხელნაკეთი სავარჯიშო დანადგარები">
+    <meta property="og:description" content="ივერის ხელით დამზადებული მაღალი ხარისხის მკლავჭიდის დანადგარები">
+    
+    <!-- Preconnects -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://images.unsplash.com">
+    
+    <!-- Styles -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@4.10.1/dist/full.min.css" rel="stylesheet" type="text/css" />
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="enhanced-styles.css" rel="stylesheet" type="text/css" />
 
     <style>
         [data-theme="corporate"] .hero .btn.glass {
@@ -23,27 +37,22 @@
         .card:hover { transform: translateY(-4px); }
         .carousel-loading { min-height: 400px; display: flex; align-items: center; justify-content: center; }
         
-        /* --- Product Card Hover Gradient Effect --- */
+        /* Product Card Hover Effects */
         .product-card {
             position: relative;
             transition: transform 0.3s ease;
-            /* Carts need to have a higher z-index to be above their own shadows */
             z-index: 1;
         }
 
         .product-card::after {
             content: '';
             position: absolute;
-            z-index: -1; /* Place the shadow behind the card */
+            z-index: -1;
             bottom: -15px;
             left: 10%;
             width: 80%;
             height: 30px;
-            
-            /* The grayish gradient effect */
-            /* This uses a shade of blue */
             background: radial-gradient(ellipse at center, rgba(59, 130, 246, 0.25) 0%, rgba(0, 0, 0, 0) 75%);
-
             opacity: 0;
             transition: opacity 0.3s ease, transform 0.3s ease;
         }
@@ -56,7 +65,7 @@
             opacity: 1;
         }
 
-        /* --- SMART SCROLLING FIX --- */
+        /* Carousel Scrolling */
         .carousel-item {
             scroll-snap-align: start;
         }
@@ -66,7 +75,7 @@
             }
         }
 
-        /* --- ARROW BUTTON DARK MODE FIX --- */
+        /* Arrow Button Dark Mode */
         [data-theme="business"] .arrow-icon {
             color: white !important;
         }
@@ -108,19 +117,158 @@
         </div>
     </header>
 
+    <!-- Enhanced Hero Section -->
     <div class="hero min-h-[70vh]" style="background-image: url('https://images.unsplash.com/photo-1549060279-7e168fcee0c2?q=80&w=2070&auto=format&fit=crop');">
         <div class="hero-content w-full flex-col md:flex-row justify-between items-center px-8 text-neutral-content">
-            <div class="max-w-md text-center md:text-left bg-black/25 backdrop-blur-sm p-8 rounded-lg">
-                <h1 class="mb-5 text-5xl font-bold">ხელნაკეთი. საიმედო. ქართული.</h1>
-                <p class="mb-5">ჩვენ ვქმნით სავარჯიშო დანადგარებს, რომლებიც შექმნილია სიმტკიცისთვის და გამძლეობისთვის.</p>
+            <div class="max-w-md text-center md:text-left bg-black/25 backdrop-blur-sm p-8 rounded-lg border border-white/10">
+                <div class="craftsman-intro mb-4">
+                    <span class="text-sm opacity-90">6 წლის გამოცდილება</span>
+                    <div class="w-12 h-0.5 bg-gradient-to-r from-yellow-400 to-yellow-600 mt-1"></div>
+                </div>
+                <h1 class="mb-5 text-5xl font-bold leading-tight">
+                    ხელნაკეთი.<br>
+                    <span class="text-yellow-400">საიმედო.</span><br>
+                    ქართული.
+                </h1>
+                <p class="mb-5 text-lg opacity-95">
+                    ივერის ხელით დამზადებული სავარჯიშო დანადგარები - 
+                    <strong>ყველა პროდუქტი უნიკალურია</strong> და შექმნილია სიმტკიცისა და გამძლეობისთვის.
+                </p>
+                <div class="craftsman-signature-hero">
+                    <span class="text-sm italic opacity-80">ხელმოწერა:</span>
+                    <div class="signature-line text-xl font-script text-yellow-300">ივერი 🔨</div>
+                </div>
             </div>
-            <div class="mt-8 md:mt-0">
-                <a href="products/product-list.html?category=all" class="btn btn-primary btn-lg glass">ყველა პროდუქტის ნახვა</a>
+            <div class="mt-8 md:mt-0 space-y-4">
+                <a href="products/product-list.html?category=all" class="btn btn-primary btn-lg glass block">
+                    <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 7.172V5L8 4z"></path>
+                    </svg>
+                    ხელნაკეთი კოლექცია
+                </a>
+                <div class="text-center">
+                    <span class="text-sm opacity-75">🏆 6 წლის ოსტატობა</span>
+                </div>
             </div>
         </div>
     </div>
 
     <main class="container mx-auto p-4 md:p-8 space-y-20">
+        <!-- Craftsman Story Section -->
+        <section class="craftsman-story py-16 -mx-4 md:-mx-8">
+            <div class="container mx-auto px-4">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div class="space-y-6">
+                        <div class="badge badge-primary badge-lg">ოსტატის ისტორია</div>
+                        <h2 class="text-4xl font-bold text-base-content">
+                            ივერი - ახალგაზრდა ოსტატი
+                        </h2>
+                        <div class="space-y-4 text-lg text-base-content/80 leading-relaxed">
+                            <p>
+                                <strong class="text-primary">6 წლის წინ</strong> დაიწყო გზა, როდესაც ივერმა პირველად ხელში აიღო ჩაქუჩი და მეტალი. 
+                                დღეს ის არის <em>მკლავჭიდის დანადგარების</em> ერთ-ერთი საუკეთესო ოსტატი საქართველოში.
+                            </p>
+                            <p>
+                                ყველა პროდუქტი იქმნება <strong>ხელით, სიყვარულით და ყურადღებით</strong>. 
+                                ივერი იყენებს მხოლოდ მაღალი ხარისხის მასალებს და 
+                                <span class="text-accent font-semibold">ტრადიციულ ქართულ მეტალმუშაობის</span> ტექნიკებს.
+                            </p>
+                        </div>
+                        <div class="flex items-center space-x-4">
+                            <div class="avatar">
+                                <div class="w-16 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&h=150&fit=crop&crop=face" alt="ივერი - ოსტატი">
+                                </div>
+                            </div>
+                            <div>
+                                <p class="font-bold text-primary">ივერი გიორგაძე</p>
+                                <p class="text-sm text-base-content/60">მთავარი ოსტატი • 6 წლის გამოცდილება</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="space-y-4">
+                            <div class="stat bg-base-100 shadow-lg rounded-lg">
+                                <div class="stat-figure text-primary">
+                                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                </div>
+                                <div class="stat-title">გამოცდილება</div>
+                                <div class="stat-value text-primary">6+</div>
+                                <div class="stat-desc">წელი</div>
+                            </div>
+                            <div class="stat bg-base-100 shadow-lg rounded-lg">
+                                <div class="stat-figure text-success">
+                                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                </div>
+                                <div class="stat-title">დამზადებული</div>
+                                <div class="stat-value text-success">200+</div>
+                                <div class="stat-desc">პროდუქტი</div>
+                            </div>
+                        </div>
+                        <div class="space-y-4">
+                            <div class="stat bg-base-100 shadow-lg rounded-lg">
+                                <div class="stat-figure text-warning">
+                                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"></path>
+                                    </svg>
+                                </div>
+                                <div class="stat-title">შეფასება</div>
+                                <div class="stat-value text-warning">4.8</div>
+                                <div class="stat-desc">5-დან</div>
+                            </div>
+                            <div class="stat bg-base-100 shadow-lg rounded-lg">
+                                <div class="stat-figure text-info">
+                                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path>
+                                    </svg>
+                                </div>
+                                <div class="stat-title">კმაყოფილი</div>
+                                <div class="stat-value text-info">150+</div>
+                                <div class="stat-desc">მყიდველი</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quality Promise Section -->
+        <section class="quality-promise py-12 -mx-4 md:-mx-8">
+            <div class="container mx-auto px-4">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl font-bold mb-4">ივერის ხარისხის დაპირება</h2>
+                    <p class="text-lg text-base-content/70">ყველა პროდუქტი გადის მკაცრ ხარისხის კონტროლს</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div class="card bg-base-100 shadow-lg">
+                        <div class="card-body text-center">
+                            <div class="text-4xl mb-4">🔨</div>
+                            <h3 class="card-title justify-center">ხელნაკეთი</h3>
+                            <p class="text-base-content/70">ყველა დეტალი დამზადებულია ხელით, ყურადღებით და სიზუსტით</p>
+                        </div>
+                    </div>
+                    <div class="card bg-base-100 shadow-lg">
+                        <div class="card-body text-center">
+                            <div class="text-4xl mb-4">⚡</div>
+                            <h3 class="card-title justify-center">გამძლე</h3>
+                            <p class="text-base-content/70">მხოლოდ მაღალი ხარისხის მასალები და მყარი კონსტრუქცია</p>
+                        </div>
+                    </div>
+                    <div class="card bg-base-100 shadow-lg">
+                        <div class="card-body text-center">
+                            <div class="text-4xl mb-4">🛡️</div>
+                            <h3 class="card-title justify-center">გარანტია</h3>
+                            <p class="text-base-content/70">2 წლის სრული გარანტია ყველა პროდუქტზე</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
         <div id="products" class="space-y-16 scroll-mt-20">
             <section>
                 <div class="flex flex-wrap gap-4 justify-between items-center mb-6">
@@ -195,11 +343,34 @@
         </section>
     </main>
 
+    <!-- Enhanced Footer -->
     <footer class="footer p-10 bg-neutral text-neutral-content">
         <aside>
-            <p class="text-2xl font-bold">🏛 Ikoriko</p>
-            <p>ხელნაკეთი სავარჯიშო დანადგარები.<br>დამზადებულია საქართველოში 2023 წლიდან.</p>
+            <div class="flex items-center space-x-4 mb-4">
+                <div class="avatar">
+                    <div class="w-12 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face" alt="ივერი">
+                    </div>
+                </div>
+                <div>
+                    <p class="text-2xl font-bold">🏛 Ikoriko</p>
+                    <p class="text-sm opacity-75">by ივერი გიორგაძე</p>
+                </div>
+            </div>
+            <p>ხელნაკეთი სავარჯიშო დანადგარები.<br>დამზადებულია საქართველოში 2018 წლიდან.</p>
+            <div class="flex items-center space-x-4 mt-4">
+                <div class="badge badge-primary badge-sm">6+ წლის გამოცდილება</div>
+                <div class="badge badge-secondary badge-sm">200+ პროდუქტი</div>
+            </div>
         </aside>
+        <nav>
+            <h6 class="footer-title">ოსტატის კონტაქტი</h6>
+            <div class="space-y-2">
+                <a class="link link-hover" href="tel:+995577627547">📞 +995 577 627 547</a>
+                <a class="link link-hover" href="mailto:iveri@ikoriko.ge">✉️ iveri@ikoriko.ge</a>
+                <p class="text-sm opacity-70">🕒 ორშ-შაბ: 9:00-18:00</p>
+            </div>
+        </nav>
         <nav>
             <h6 class="footer-title">სოციალური მედია</h6>
             <div class="grid grid-flow-col gap-4">
@@ -210,8 +381,27 @@
         </nav>
     </footer>
 
+    <!-- Scripts -->
     <script src="products/database.js"></script>
+    <script src="utils.js"></script>
     <script src="main.js"></script>
     <script src="theme.js"></script>
+
+    <!-- Safety Check Script -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        if (typeof IkorikoUtils !== 'undefined') {
+            console.log('✅ Ikoriko utilities loaded successfully');
+            
+            if (typeof productsDatabase !== 'undefined') {
+                console.log('✅ Product database loaded successfully');
+            } else {
+                console.warn('⚠️ Product database not found - check database.js');
+            }
+        } else {
+            console.warn('⚠️ Utilities not found - check utils.js');
+        }
+    });
+    </script>
 </body>
 </html>
